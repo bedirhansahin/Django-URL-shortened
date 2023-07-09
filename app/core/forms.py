@@ -16,3 +16,18 @@ class UserRegisterForm(UserCreationForm):
             "username": TextInput(attrs={"placeholder": "Username"}),
             "email": TextInput(attrs={"placeholder": "Email"}),
         }
+
+
+class URLDataForm(ModelForm):
+    class Meta:
+        model = URLData
+        exclude = ("user", "shortened_url")
+        widgets = {
+            "url": TextInput(attrs={"placeholder": "Url"}),
+        }
+
+
+class URLUpdateForm(ModelForm):
+    class Meta:
+        model = URLData
+        exclude = ("user",)

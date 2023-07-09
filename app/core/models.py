@@ -20,7 +20,7 @@ class URLData(models.Model):
     shortened_url = models.CharField(max_length=10, unique=True, blank=True)
     click_count = models.PositiveIntegerField(default=0, editable=False)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
-    updated_at = models.DateTimeField(auto_now=True)
+    last_click_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.shortened_url
